@@ -2,24 +2,19 @@
   "name": "belogger-cron",
   "version": "0.0.1",
   "private": true,
-  "main": "./index.js",
-  "exports": "./index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "build-dev": "npm run build --mode dev",
-    "build-stage": "npm run build --mode stage",
-    "build-prod": "npm run build --mode prod",
-    "local": "--mode local",
-    "dev": "node index.js --mode dev --port 3000",
-    "stage": "--mode stage",
-    "prod": "--mode prod"
+    "local": "node src/index.js --mode local",
+    "dev": "node src/index.js --mode development",
+    "prod": "node src/index.js --mode production"
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
     "node-cron": "^3.0.2",
     "winston": "^3.10.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kong-droid/node-cron.git"
