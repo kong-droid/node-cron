@@ -10,7 +10,7 @@ Belogger-cron
         - version: (local) 8.11.0 / (stage) 8.5.5 / (dev) 8.5.5
         - purpose: package manager
     > dotenv
-        - version: 16.3.1
+        - version: 16.3.1 (not affected by node.js)
         - purpose: logging
     > axios
         - version: 1.4.0 (not affected by node.js)
@@ -27,5 +27,5 @@ Belogger-cron
     > local: npm run local
     > dev: npm run dev
     > stage: npm run stage
-    > prod: npm rum prod
+    > prod: npm run prod
 ```
