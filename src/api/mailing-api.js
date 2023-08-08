@@ -1,2 +1,2 @@
-import client from 'src/config/axios-config.js';
-export const termsMail = () => client.patch("/api/terms/email");
+import axiosSetup from '../setup/axios-setup.js';
+export const termsMail = () => axiosSetup.patch("/api/terms/email");

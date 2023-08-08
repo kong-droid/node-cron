@@ -9,6 +9,9 @@ Belogger-cron
     > npm
         - version: (local) 8.11.0 / (stage) 8.5.5 / (dev) 8.5.5
         - purpose: package manager
+    > dotenv
+        - version: 16.3.1
+        - purpose: logging
     > axios
         - version: 1.4.0 (not affected by node.js)
         - purpose: ajax
@@ -26,15 +29,3 @@ Belogger-cron
     > stage: npm run stage
     > prod: npm rum prod
 ```
-- build
-```
-    > local: npm build local
-    > dev: npm build dev
-    > stage: npm build stage
-    > prod: npm build prod
-```
-
-
-
-
-

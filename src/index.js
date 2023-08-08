@@ -1,8 +1,9 @@
-import dotenv from "dotenv";
-import * as http from "http";
+import envSetup from "./setup/env-setup.js";
 import mailing from "./container/mailing.js";
+import * as http from "http";
 
-dotenv.config({ path: process.env.npm_lifecycle_event + '.env' });
+envSetup();
+
 const hostname = process.env.NODE_ENV_HOSTNAME;
 const port = process.env.NODE_ENV_PORT;
 
@@ -11,6 +12,8 @@ const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.end('belogger-cron');
 });
+
 server.listen(port, hostname, () => {
+  // adding batch function...
   mailing();
 });
