@@ -11,7 +11,7 @@ Belogger-cron
         - purpose: package manager
     > dotenv
         - version: 16.3.1 (not affected by node.js)
-        - purpose: logging
+        - purpose: environment managing
     > axios
         - version: 1.4.0 (not affected by node.js)
         - purpose: ajax
@@ -21,6 +21,9 @@ Belogger-cron
     > winston
         - version: 3.10.0 (not affected by node.js)
         - purpose: scheduling log
+    > winston-daily-rotate-file
+        - version: 4.7.1 (not affected by node.js)
+        - purpose: make daily log
 ``````
 - start
 ```

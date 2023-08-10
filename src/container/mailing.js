@@ -3,7 +3,7 @@ import {termsMail} from "../api/mailing-api.js";
 
 const mailing = () => {
   nodeCron.schedule("* * * * *", () => {
-    // todo:: add winston config
+    // todo:: add log
     termsMail().then(res => {
       console.log(res.data.code, res.data.message);
     }).catch(e => {
