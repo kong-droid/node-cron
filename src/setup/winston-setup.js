@@ -1,11 +1,10 @@
-import * as winston from 'winston';
-import 'winston-daily-rotate-file';
+import winston from 'winston';
+import winstonDaily from 'winston-daily-rotate-file';
 import envSetup from "./env-setup.js";
 
 envSetup();
 
-const transport = new winston.transports.DailyRotateFile({
-  level: process.env.NODE_ENV_LOG_LEVEL,
+const transport = new winstonDaily({
   datePattern: 'YYYY-MM-DD',
   dirname: process.env.NODE_ENV_LOG_FILE_DIR,
   filename: `belogger-cron_%DATE%.log`,
@@ -19,14 +18,24 @@ const logFormat = printf(f => {
   return `${f.timestamp} ${f.level}: ${f.message}`;
 });
 
-export const log = winston.createLogger({
+const logging = winston.createLogger({
   level: process.env.NODE_ENV_LOG_LEVEL_MESSAGE,
   format: combine(
       timestamp({format: 'YYYY-MM-DD HH:mm:ss'}),
-      logFormat,
-      winston.format.colorize()
+      logFormat
   ),
   transports: [
     transport
   ]
 });
+
+if(process.env.NODE_ENV === 'local') {
+  logging.add(new winston.transports.Console({
+    format: winston.format.combine(
+        winston.format.colorize(),
+        winston.format.simple(),
+    )
+  }));
+}
+
+export default logging;

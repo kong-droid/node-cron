@@ -1,6 +1,7 @@
 import envSetup from "./setup/env-setup.js";
 import mailing from "./container/mailing.js";
 import * as http from "http";
+import historyDevices from "./container/history-devices.js";
 
 envSetup();
 
@@ -16,4 +17,5 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   // adding batch function...
   mailing();
+  historyDevices();
 });
