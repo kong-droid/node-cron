@@ -1,16 +1,11 @@
-import dotenv from "dotenv";
-import * as http from "http";
-import mailing from "./container/mailing.js";
+import * as http from 'http';
+import EnvSetup from './setup/env-setup.js';
+import SampleContainer from "./container/sample-container.js";
 
-dotenv.config({ path: process.env.npm_lifecycle_event + '.env' });
+EnvSetup();
 const hostname = process.env.NODE_ENV_HOSTNAME;
 const port = process.env.NODE_ENV_PORT;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('belogger-cron');
-});
+const server = http.createServer();
 server.listen(port, hostname, () => {
-  mailing();
+  SampleContainer();
 });
