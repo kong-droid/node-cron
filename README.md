@@ -1,7 +1,9 @@
-Belogger-cron
+Node Cron
 =============
-- smart-pod scheduler
-- version and purpose
+
+## cron sample
+
+### 1. version and purpose
 ``````
     > node.js
         - version: (local) 17.9.1 / (stage) 17.9.0 / (dev) 16.14.2
@@ -19,19 +21,16 @@ Belogger-cron
         - version: 3.10.0 (not affected by node.js)
         - purpose: scheduling log
 ``````
-- start
+
+### 2. start
 ```
     > local: npm run local
     > dev: npm run dev
-    > stage: npm run stage
-    > prod: npm rum prod
 ```
-- build
+### 3. build
 ```
     > local: npm build local
     > dev: npm build dev
-    > stage: npm build stage
-    > prod: npm build prod
 ```
 
 

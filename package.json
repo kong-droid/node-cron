@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "local": "node src/index.js --mode local",
-    "dev": "node src/index.js --mode development",
-    "prod": "node src/index.js --mode production"
+    "dev": "node src/index.js --mode development"
   },
   "dependencies": {
     "axios": "^1.4.0",
