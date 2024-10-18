@@ -1,8 +1,9 @@
 import dotenv from 'dotenv';
+import {environment} from "../utils/extensions.js";
 
 const EnvSetup = () => {
   dotenv.config({
-    path: '.' + process.env.npm_lifecycle_event + '.env',
+    path: '.' + environment() + '.env',
     encoding: 'UTF-8'
   });
 };
