@@ -1,4 +1,6 @@
 import esbuild from "esbuild";
+import obfuscate from "javascript-obfuscator";
+import * as fs from "fs";
 import EnvSetup from "./src/setup/env-setup.js";
 import {environment} from "./src/utils/extensions.js";
 
@@ -23,4 +25,11 @@ const esBuildOptions = {
     "process.env.npm_lifecycle_event": JSON.stringify(environment())
   }
 };
-esbuild.build(esBuildOptions).catch(() => process.exit(1));
+esbuild
+    .build(esBuildOptions)
+    .then(() => {
+      const code = fs.readFileSync("dist/index.cjs", "utf-8");
+      const obfuscatedCode = obfuscate.obfuscate(code).getObfuscatedCode();
+      fs.writeFileSync("dist/index.cjs", obfuscatedCode);
+    })
+    .catch(() => process.exit(1));
