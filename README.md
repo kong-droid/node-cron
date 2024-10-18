@@ -32,6 +32,9 @@ Node Cron
     > moment-timezone
         - version: 0.5.43 (not affected by node.js)
         - purpose: get time based on KST
+    > esbuild
+        - version: 0.24.0 (not affected by node.js)
+        - purpose: lightweighting        
 ``````
 
 ### 2. start
@@ -41,8 +44,8 @@ Node Cron
 ```
 ### 3. build
 ```
-    > local: npm build local
-    > dev: npm build dev
+    > local: npm build-local
+    > dev: npm build-dev
 ```
 
 
